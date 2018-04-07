@@ -1,0 +1,30 @@
+{
+
+  "manifest_version": 2,
+  "name": "Cipher",
+  "version": "1.0",
+
+  "description": "Encrypt text from context menu",
+
+  "icons": {
+    "48": "icons/cipher-48.png",
+    "96": "icons/cipher-96.png"
+  },
+
+  "background": {
+    "scripts": ["cipher.js"]
+  },
+
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "clipboardWrite"
+  ],
+
+  "applications": {
+    "gecko": {
+        "id": "cipher@junquera.xyz"
+    }
+  }
+
+}
