@@ -7,21 +7,26 @@ function protect_key(password, salt){
   return CryptoJS.PBKDF2(password, salt, { keySize: 512/32, iterations: iterations }).toString();
 }
 
-// TODO Avoid password fields
-// TODO https://www.npmjs.com/package/crypto-js
-// TODO Prompt for password
-// TODO Encrypt / Decrypt
 var original_value = document.activeElement.value;
-
-var hash = CryptoJS.SHA256(original_value).toString();
-var to_encrypt = hash + original_value;
 
 var password = prompt("Set password");
 
-var salt = CryptoJS.lib.WordArray.random(128/8).toString();
+var salt = original_value.substring(0,32);
+original_value = original_value.substring(32);
 
 var key = protect_key(password, salt);
 
-var ciphertext = CryptoJS.AES.encrypt(to_encrypt, key);
+var bytes = CryptoJS.AES.decrypt(original_value, key);
 
-document.activeElement.value = salt + ciphertext;
+var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+
+var orig_hash = plaintext.substring(0, 64);
+var result = plaintext.substring(64);
+
+var result_hash = CryptoJS.SHA256(result).toString();
+
+if(orig_hash == result_hash){
+  document.activeElement.value = result;
+} else {
+  alert("Error, bad decryption.");
+}

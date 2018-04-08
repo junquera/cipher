@@ -5,11 +5,18 @@ browser.contextMenus.create({
   contexts: ["editable"]
 });
 
+browser.contextMenus.create({
+  id: "decrypt",
+  title: "Decrypt", //browser.i18n.getMessage("contextMenuItemSelectionLogger"),
+  // contexts: ["selection"]
+  contexts: ["editable"]
+});
+
 
 browser.contextMenus.onClicked.addListener(function(info, tab) {
 
   browser.tabs.executeScript(tab.id, {
-    file: "bower_components/crypto-js/crypto-js.js",
+    file: "crypto-js.js",
   });
 
   switch (info.menuItemId) {
@@ -18,6 +25,11 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
         file: "encrypt.js",
       });
       // alert(info.selectionText);
+      break;
+    case "decrypt":
+      browser.tabs.executeScript(tab.id, {
+        file: "decrypt.js",
+      });
       break;
   }
 })
