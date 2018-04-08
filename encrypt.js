@@ -11,7 +11,22 @@ function protect_key(password, salt){
 // TODO https://www.npmjs.com/package/crypto-js
 // TODO Prompt for password
 // TODO Encrypt / Decrypt
-var original_value = document.activeElement.value;
+
+var text_fields = ['value', 'textContent'];
+var text_field = -1;
+
+for(let field in text_fields){
+  if(document.activeElement[text_fields[field]]) {
+    text_field = field;
+    break;
+  }
+}
+
+if(text_field < 0){
+  alert("Error");
+}
+
+var original_value = document.activeElement[text_fields[text_field]];
 
 var hash = CryptoJS.SHA256(original_value).toString();
 var to_encrypt = hash + original_value;
@@ -24,4 +39,4 @@ var key = protect_key(password, salt);
 
 var ciphertext = CryptoJS.AES.encrypt(to_encrypt, key);
 
-document.activeElement.value = salt + ciphertext;
+document.activeElement[text_fields[text_field]] = salt + ciphertext;

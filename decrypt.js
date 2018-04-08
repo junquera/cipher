@@ -7,7 +7,22 @@ function protect_key(password, salt){
   return CryptoJS.PBKDF2(password, salt, { keySize: 512/32, iterations: iterations }).toString();
 }
 
-var original_value = document.activeElement.value;
+
+var text_fields = ['value', 'textContent'];
+var text_field = -1;
+
+for(let field in text_fields){
+  if(document.activeElement[text_fields[field]]) {
+    text_field = field;
+    break;
+  }
+}
+
+if(text_field < 0){
+  alert("Error");
+}
+
+var original_value = document.activeElement[text_fields[text_field]];
 
 var password = prompt("Set password");
 
@@ -26,7 +41,7 @@ var result = plaintext.substring(64);
 var result_hash = CryptoJS.SHA256(result).toString();
 
 if(orig_hash == result_hash){
-  document.activeElement.value = result;
+  document.activeElement[text_fields[text_field]] = result;
 } else {
   alert("Error, bad decryption.");
 }
