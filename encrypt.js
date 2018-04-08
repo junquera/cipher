@@ -20,12 +20,34 @@ function revertSelection(){
   }
 }
 
+
+function protect_key(password, salt){
+
+  // 1000 iterations takes a couple seconds in the browser. Wouldn't want to go much higher if this is a browser implementation
+  var iterations = 1000;
+
+  // make your own hash if you don't know this one
+  return CryptoJS.PBKDF2(password, salt, { keySize: 512/32, iterations: iterations }).toString();
+}
+
+console.log("Starting");
 // TODO Avoid password fields
 // TODO https://www.npmjs.com/package/crypto-js
 // TODO Prompt for password
 // TODO Encrypt / Decrypt
 var original_value = document.activeElement.value;
+
 var password = prompt("Set password");
-var ciphertext = CryptoJS.AES.encrypt(original_value, password);
-var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-document.activeElement.value = original_value.toString().split('').reverse().join('');
+
+var salt = CryptoJS.lib.WordArray.random(128/8).toString();
+
+console.log("Protecting key");
+var key = protect_key(password, salt);
+console.log(key);
+
+var ciphertext = CryptoJS.AES.encrypt(original_value, key);
+
+// TODO Decrypt
+// var bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');
+// var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+document.activeElement.value = salt + ciphertext;
