@@ -23,6 +23,14 @@ This is an example at [Pastebin](https://pastebin.com/):
 
 You can install `cipher` from the [release](https://github.com/junquera/cipher/releases/tag/v1.0.2) (firefox and chrome) or from firefox [Add-ons](https://addons.mozilla.org/en-US/firefox/addon/cipher/) (just for firefox).
 
+### Firefox
+
+Open [about:addons](about:addons), then drag and drop [cipher-firefox.xpi](https://github.com/junquera/cipher/releases/download/v1.0.2/cipher-firefox.xpi)
+
+### Google Chrome
+
+Open [chrome://extensions/](chrome://extensions/), then drag and drop [cipher-chrome.crx](https://github.com/junquera/cipher/releases/download/v1.0.2/cipher-chrome.crx)
+
 ## Credits
 
 - CryptoJS - [https://github.com/brix/crypto-js](https://github.com/brix/crypto-js)
