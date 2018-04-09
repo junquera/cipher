@@ -7,7 +7,6 @@ function protect_key(password, salt){
   return CryptoJS.PBKDF2(password, salt, { keySize: 512/32, iterations: iterations }).toString();
 }
 
-
 var text_fields = ['value', 'textContent'];
 var text_field = -1;
 
@@ -19,10 +18,14 @@ for(let field in text_fields){
 }
 
 if(text_field < 0){
-  alert("Error");
+  alert("Error, no value found.");
 }
 
 var original_value = document.activeElement[text_fields[text_field]];
+
+if(original_value.length <= 0){
+  alert("Error, empty value.");
+}
 
 var password = prompt("Set password");
 

@@ -18,7 +18,7 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
   browser.tabs.executeScript(tab.id, {
     file: "crypto-js.js",
   });
-
+  
   switch (info.menuItemId) {
     case "encrypt":
       browser.tabs.executeScript(tab.id, {
