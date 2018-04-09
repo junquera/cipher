@@ -4,7 +4,7 @@ Browser extension for encrypt/decrypt editable fields like emails, pastes, notes
 
 Some of them are:
 
-- WhatsApp
+- WhatsApp Web
 
 - Google Keep
 
