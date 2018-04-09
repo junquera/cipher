@@ -1,11 +1,19 @@
-browser.contextMenus.create({
+var iface;
+
+if(chrome){
+  iface = chrome;
+} else if (browser) {
+  iface = browser;
+}
+
+iface.contextMenus.create({
   id: "encrypt",
   title: "Encrypt", //browser.i18n.getMessage("contextMenuItemSelectionLogger"),
   // contexts: ["selection"]
   contexts: ["editable"]
 });
 
-browser.contextMenus.create({
+iface.contextMenus.create({
   id: "decrypt",
   title: "Decrypt", //browser.i18n.getMessage("contextMenuItemSelectionLogger"),
   // contexts: ["selection"]
@@ -13,21 +21,21 @@ browser.contextMenus.create({
 });
 
 
-browser.contextMenus.onClicked.addListener(function(info, tab) {
+iface.contextMenus.onClicked.addListener(function(info, tab) {
 
-  browser.tabs.executeScript(tab.id, {
+  iface.tabs.executeScript(tab.id, {
     file: "/crypto-js.js",
   });
 
   switch (info.menuItemId) {
     case "encrypt":
-      browser.tabs.executeScript(tab.id, {
+      iface.tabs.executeScript(tab.id, {
         file: "/encrypt.js",
       });
       // alert(info.selectionText);
       break;
     case "decrypt":
-      browser.tabs.executeScript(tab.id, {
+      iface.tabs.executeScript(tab.id, {
         file: "/decrypt.js",
       });
       break;
