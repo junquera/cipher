@@ -1,8 +1,18 @@
 # cipher
 
-Browser extension for encrypt/decrypt editable fields like emails, pastes, notes... 
+Browser extension for encrypt/decrypt editable fields like emails, pastes, notes...
 
-## Examples
+Some of them are:
+
+- WhatsApp
+
+- Google Keep
+
+- Pastebin
+
+- Inbox / Gmail
+
+## Example
 
 This is an example at [Pastebin](https://pastebin.com/):
 
