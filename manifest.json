@@ -17,7 +17,7 @@
 
   "permissions": [
     "activeTab",
-    "contextMenus",
+    "contextMenus"
   ],
 
   "applications": {

@@ -16,19 +16,19 @@ browser.contextMenus.create({
 browser.contextMenus.onClicked.addListener(function(info, tab) {
 
   browser.tabs.executeScript(tab.id, {
-    file: "crypto-js.js",
+    file: "/crypto-js.js",
   });
-  
+
   switch (info.menuItemId) {
     case "encrypt":
       browser.tabs.executeScript(tab.id, {
-        file: "encrypt.js",
+        file: "/encrypt.js",
       });
       // alert(info.selectionText);
       break;
     case "decrypt":
       browser.tabs.executeScript(tab.id, {
-        file: "decrypt.js",
+        file: "/decrypt.js",
       });
       break;
   }
