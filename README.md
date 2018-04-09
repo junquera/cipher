@@ -1,12 +1,17 @@
 # cipher
 
-Browser extension for encrypt/decrypt editable fields like emails, pastes, notes...
+Browser extension for encrypt/decrypt editable fields like emails, pastes, notes... 
 
 ## Examples
 
 This is an example at [Pastebin](https://pastebin.com/):
 
 ![pastebin_example](imgs/pastebin_example.gif)
+
+
+## Install
+
+You can install `cipher` from the [release](https://github.com/junquera/cipher/releases/tag/v1.0.2) (firefox and chrome) or from the firefox Add-ons page [https://addons.mozilla.org/en-US/firefox/addon/cipher/](https://addons.mozilla.org/en-US/firefox/addon/cipher/) (just for firefox).
 
 ## Credits
 
