@@ -1,6 +1,8 @@
 # cipher
 
-Browser extension for encrypt/decrypt editable fields like emails, pastes, notes... For example, for encrypting at pastebin:
+Browser extension for encrypt/decrypt editable fields like emails, pastes, notes...
+
+## [Pastebin](https://pastebin.com/) example
 
 ![pastebin_example](imgs/pastebin_example.gif)
 
