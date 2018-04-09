@@ -9,14 +9,12 @@ if(chrome){
 iface.contextMenus.create({
   id: "encrypt",
   title: "Encrypt", //browser.i18n.getMessage("contextMenuItemSelectionLogger"),
-  // contexts: ["selection"]
   contexts: ["editable"]
 });
 
 iface.contextMenus.create({
   id: "decrypt",
   title: "Decrypt", //browser.i18n.getMessage("contextMenuItemSelectionLogger"),
-  // contexts: ["selection"]
   contexts: ["editable"]
 });
 
