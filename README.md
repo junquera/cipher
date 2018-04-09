@@ -2,7 +2,9 @@
 
 Browser extension for encrypt/decrypt editable fields like emails, pastes, notes...
 
-## [Pastebin](https://pastebin.com/) example
+## Examples
+
+This is an example at [Pastebin](https://pastebin.com/):
 
 ![pastebin_example](imgs/pastebin_example.gif)
 
